@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 title">
+            <h2>Страница администратора</h2>
+        </div>
+    </div>
+    <div class="col s12 m12 l9">
+        <div id="card-container" class="row" ng-hide="vm.isLoading">
+            <div class="col s4" ng-repeat="car in vm.carsArray | orderBy: '-views'">
+                <h5 class="light">{{vm.brandsArray[car.brandId].name + ' ' +
+                    vm.brandsArray[car.brandId].models[car.modelId].name}}</h5>
+                <div class="card small hoverable">
+                    <div class="card-image">
+                        <img src="content/img/48.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p>Просмотров: {{car.views}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="waves-effect waves-light"
+                           ui-sref="edit({id: car.$id})">Изменить</a>
+                        <a class="waves-effect waves-light btn"
+                           ng-click="vm.removeCarById(car.$id)">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="vm.isLoading">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+</div>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating pulse btn-large red scale-transition">
+        <i class="large material-icons">view_headline</i>
+    </a>
+    <ul>
+        <li>
+            <a class="btn-floating red" ui-sref="create">
+                <i class="material-icons">add</i>
+            </a>
+        </li>
+        <li>
+            <a class="btn-floating green" ui-sref="parameters">
+                <i class="material-icons">mode_edit</i>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>

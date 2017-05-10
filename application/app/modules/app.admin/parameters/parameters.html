@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 title">
+            <h2>Редактирование параметров автомобилей</h2>
+        </div>
+    </div>
+
+    <form>
+        <div class="column">
+            <h4>Производитель автомобилей</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="" id="brand_name" type="text" class="validate" ng-model="vm.brandName" required>
+                    <label class="active" for="brand_name">Название производителя</label>
+                    <a class="waves-effect waves-light btn-large" ng-click="vm.addBrand()">
+                        <i class="material-icons left">note_add</i>
+                        Добавить
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <h4>Модель автомобиля</h4>
+            <div class="row">
+                <div input-field class="col s6">
+                    <select class="" ng-model="vm.selectedBrandId" material-select watch>
+                        <option ng-repeat="brand in vm.brandsArray" ng-value="brand.$id">{{brand.name}}</option>
+                    </select>
+                    <a class="waves-effect waves-light btn-large" ng-click="vm.addCarModel()">
+                        <i class="material-icons left">note_add</i>
+                        Добавить
+                    </a>
+                </div>
+                <div class="input-field col s6">
+                    <input value="" id="model_name" type="text" class="validate" ng-model="vm.modelName" required>
+                    <label class="active" for="model_name">Название модели</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <h4>Тип двигателя</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="" id="fuel" type="text" class="validate" ng-model="vm.fuelType" required>
+                    <label class="active" for="fuel">Тип двигателя</label>
+                    <a class="waves-effect waves-light btn-large" ng-click="vm.addFuelsType()">
+                        <i class="material-icons left">note_add</i>
+                        Добавить
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <h4>Тип трансмиссии</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input value="" id="transmission" type="text" class="validate" ng-model="vm.transmissionsType" required>
+                    <label class="active" for="transmission">Тип трансмиссии</label>
+                    <a class="waves-effect waves-light btn-large" ng-click="vm.addTransmissionsType()">
+                        <i class="material-icons left">note_add</i>
+                        Добавить
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

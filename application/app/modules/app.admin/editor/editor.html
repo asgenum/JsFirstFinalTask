@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 title">
+            <h2>Страница изменения параметров автомобиля</h2>
+        </div>
+    </div>
+
+    <form class="row" ng-hide="vm.isLoading">
+        <form class="col s12" ng-show="vm.carIsValid">
+            <div class="row">
+                <div class="input-field col s6" id="brand" >
+                    <select class="" ng-model="vm.selectedBrandId" material-select watch required>
+                        <option ng-repeat="brand in vm.brandsArray" ng-value="brand.$id">{{brand.name}}</option>
+                    </select>
+                    <label for="brand">Производитель</label>
+                </div>
+                <div class="input-field col s6" id="carModel">
+                    <select class="" ng-model="vm.selectedModelId" material-select watch required>
+                        <option ng-repeat="carModel in vm.modelsArray" ng-value="carModel.$id">{{carModel.name}}
+                        </option>
+                    </select>
+                    <label for="carModel">Модель</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="price" type="number" min="0" max="200000" class="validate" ng-model="vm.carPrice" required>
+                    <label for="price">Цена в BYN</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="year" type="number" min="1950" max="2017" class="validate" ng-model="vm.year" required>
+                    <label for="year">Год производства</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="mileage" type="number" min="0" max="999999" class="validate" ng-model="vm.mileage" required>
+                    <label for="mileage">Пробег</label>
+                </div>
+                <div class="input-field col s6" id="fuel">
+                    <select class="" ng-model="vm.selectedFuelId" material-select watch>
+                        <option ng-repeat="fuel in vm.fuelsArray" ng-value="fuel.$id">{{fuel.name}}</option>
+                    </select>
+                    <label for="fuel">Тип двигателя</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="capacity" type="number" min="1" max="6" class="validate" ng-model="vm.capacity" step=0.01 required>
+                    <label for="capacity">Обьём двигателя</label>
+                </div>
+                <div class="input-field col s6" id="transmission">
+                    <select class="" ng-model="vm.selectedTransmissionsId" material-select watch>
+                        <option ng-repeat="transmission in vm.transmissionsArray" ng-value="transmission.$id">{{transmission.name}}
+                        </option>
+                    </select>
+                    <label for="transmission">Тип коробки передач</label>
+                </div>
+            </div>
+            <div class="col offset-s6">
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    Изменить
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </form>
+</div>

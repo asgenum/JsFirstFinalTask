@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Shop</title>
+    <!-- Fonts Icon material-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="dependencies/css/materialize.css">
+    <link rel="stylesheet" href="content/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+
+<body ng-app="app">
+
+<div class="navbar-fixed">
+    <nav>
+        <ul class="center-align row">
+            <li class="waves-effect col s4">
+                <a ui-sref="home">
+                    <i class="material-icons">home</i>
+                    ДОМОЙ
+                </a>
+            </li>
+            <li class="waves-effect col s4">
+                <a ui-sref="search">
+                    <i class="material-icons">search</i>
+                    ПОИСК
+                </a>
+            </li>
+            <li class="waves-effect col s4">
+                <a ui-sref="admin">
+                    <i class="material-icons">lock_open</i>
+                    АДМИНИСТРИРОВАНИЕ
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div ui-view></div>
+
+
+<!-- Javascript -->
+<script src="dependencies/js/jquery.js"></script>
+<script src="dependencies/js/angular.js"></script>
+<script src="dependencies/js/materialize.js"></script>
+<script src="dependencies/js/angular-materialize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0/angular-ui-router.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
+<script src="app/app.module.js"></script>
+<script src="app/app.config.js"></script>
+<script src="app/modules/app.user/app.user.module.js"></script>
+<script src="app/modules/app.user/app.user.config.js"></script>
+<script src="app/modules/app.admin/app.admin.module.js"></script>
+<script src="app/modules/app.admin/app.admin.config.js"></script>
+<script src="app/factories/services.factory.js"></script>
+<script src="app/filters/to.filter.js"></script>
+<script src="app/modules/app.user/home/home.controller.js"></script>
+<script src="app/modules/app.admin/admin/admin.controller.js"></script>
+<script src="app/modules/app.user/search/search.controller.js"></script>
+<script src="app/modules/app.user/car/car.controller.js"></script>
+<script src="app/modules/app.admin/creator/creator.controller.js"></script>
+<script src="app/modules/app.admin/editor/editor.controller.js"></script>
+<script src="app/modules/app.admin/parameters/parameters.controller.js"></script>
+<script src="app/factories/cars.factory.js"></script>
+<script src="app/factories/parameters.factory.js"></script>
+
+
+
+<!--<script src="js/controllers/user.controller.js"></script>-->
+<!--<script src="js/controllers/option.controller.js"></script>-->
+
+</body>
+</html>

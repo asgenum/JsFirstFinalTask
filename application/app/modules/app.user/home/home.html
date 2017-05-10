@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 title">
+            <h2>Главная страница</h2>
+        </div>
+
+        <div class="input-field col s6 offset-s3" style="margin-top: 10%">
+            <input id="searchQuery" type="text" class="validate" ng-model="vm.searchQuery">
+            <label class="active" for="searchQuery">Поисковый запрос</label>
+        </div>
+
+        <a class="waves-effect waves-light btn col s2 offset-s5"
+           ui-sref="searchWithParams({text: vm.searchQuery})">Найти</a>
+
+    </div>
+
+    <div class="row" ng-hide="vm.isLoading">
+        <div class="col s4" ng-repeat="car in vm.carsArray | orderBy: '-views'">
+            <h5 class="light">{{vm.brandsArray[car.brandId].name + ' ' +
+                vm.brandsArray[car.brandId].models[car.modelId].name}}</h5>
+            <div class="card small hoverable">
+                <div class="card-image">
+                    <img src="content/img/48.jpg">
+                </div>
+                <div class="card-content">
+                    <p>Просмотров: {{car.views}}</p>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light"
+                       ui-sref="car({id: car.$id})">Открыть</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="vm.isLoading">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+
+</div>
