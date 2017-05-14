@@ -6,8 +6,11 @@
     <!-- Fonts Icon material-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="dependencies/css/materialize.css">
-    <link rel="stylesheet" href="content/css/style.css">
+    <link href="dependencies/materialize/materialize.css" rel="stylesheet">
+    <link href="content/css/style.css" rel="stylesheet">
+    <link href="dependencies/kendoui/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="dependencies/kendoui/styles/kendo.default.min.css" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
@@ -43,32 +46,37 @@
 
 
 <!-- Javascript -->
-<script src="dependencies/js/jquery.js"></script>
-<script src="dependencies/js/angular.js"></script>
-<script src="dependencies/js/materialize.js"></script>
-<script src="dependencies/js/angular-materialize.js"></script>
+<script src="dependencies/jquery/jquery.js"></script>
+<script src="dependencies/angular/angular.js"></script>
+<script src="dependencies/materialize/materialize.js"></script>
+<script src="dependencies/materialize/angular-materialize.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0/angular-ui-router.js"></script>
 <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+<script src="dependencies/kendoui/js/kendo.all.min.js"></script>
 
 <script src="app/app.module.js"></script>
-<script src="app/app.config.js"></script>
 <script src="app/modules/app.user/app.user.module.js"></script>
-<script src="app/modules/app.user/app.user.config.js"></script>
 <script src="app/modules/app.admin/app.admin.module.js"></script>
+
+<script src="app/app.config.js"></script>
+<script src="app/modules/app.user/app.user.config.js"></script>
 <script src="app/modules/app.admin/app.admin.config.js"></script>
-<script src="app/factories/services.factory.js"></script>
-<script src="app/filters/to.filter.js"></script>
+
 <script src="app/modules/app.user/home/home.controller.js"></script>
-<script src="app/modules/app.admin/admin/admin.controller.js"></script>
 <script src="app/modules/app.user/search/search.controller.js"></script>
 <script src="app/modules/app.user/car/car.controller.js"></script>
+
+<script src="app/modules/app.admin/admin/admin.controller.js"></script>
 <script src="app/modules/app.admin/creator/creator.controller.js"></script>
 <script src="app/modules/app.admin/editor/editor.controller.js"></script>
 <script src="app/modules/app.admin/parameters/parameters.controller.js"></script>
+
+<script src="app/factories/services.factory.js"></script>
 <script src="app/factories/cars.factory.js"></script>
 <script src="app/factories/parameters.factory.js"></script>
 
+<script src="app/filters/to.filter.js"></script>
 
 
 <!--<script src="js/controllers/user.controller.js"></script>-->
