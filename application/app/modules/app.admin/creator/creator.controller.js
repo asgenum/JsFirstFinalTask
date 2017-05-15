@@ -3,8 +3,8 @@
         .module('app.admin')
         .controller('CarCreatorController', CarCreatorController);
 
-    CarCreatorController.$inject = ['$state', 'carsFactory', 'parametersFactory', '$scope'];
-    function CarCreatorController($state, carsFactory, parametersFactory, $scope) {
+    CarCreatorController.$inject = ['$state', 'carsFactory', 'parametersFactory', '$scope', '$interval'];
+    function CarCreatorController($state, carsFactory, parametersFactory, $scope, $interval) {
         var vm = this;
         vm.brandsArray = [];
         vm.modelsArray = [];
@@ -28,31 +28,26 @@
         vm.getAllFuels = getAllFuels;
         vm.getAllTransmissions = getAllTransmissions;
 
-        getAllBrands();
-        initCarModelChange();
-        getAllFuels();
-        getAllTransmissions();
+        vm.getAllBrands();
+        vm.initCarModelChange();
+        vm.getAllFuels();
+        vm.getAllTransmissions();
+
 
         function createCar() {
-            if(vm.selectedBrandId && vm.selectedModelId && vm.selectedFuelId && vm.selectedTransmissionsId) {
-                vm.car.brandId = vm.selectedBrandId;
-                vm.car.modelId = vm.selectedModelId;
+            if (vm.selectedBrandId && vm.selectedModelId && vm.selectedFuelId && vm.selectedTransmissionsId) {
+                vm.car.brand = vm.brandsArray[vm.selectedBrandId].name;
+                vm.car.model = vm.modelsArray[vm.selectedModelId].name;
                 vm.car.price = vm.carPrice;
                 vm.car.year = vm.year;
                 vm.car.mileage = vm.mileage;
-                vm.car.fuelId = vm.selectedFuelId;
+                vm.car.fuel = vm.fuelsArray[vm.selectedFuelId].name;
                 vm.car.capacity = vm.capacity;
-                vm.car.transmissionId = vm.selectedTransmissionsId;
+                vm.car.transmission = vm.transmissionsArray[vm.selectedTransmissionsId].name;
 
                 carsFactory.addCar(vm.car);
                 $state.go('admin');
             }
-        }
-
-        function getAllBrands() {
-            parametersFactory.getAllBrands().then(function (array) {
-                vm.brandsArray = array;
-            });
         }
 
         function initCarModelChange() {
@@ -61,38 +56,49 @@
             });
         }
 
+        function getAllBrands() {
+            return parametersFactory.getAllBrands().then(function (array) {
+                vm.brandsArray = array;
+            });
+        }
+
         function getCarModelsByBrandId(id) {
-            parametersFactory.getModelsByBrandId(id).then(function (array) {
+            return parametersFactory.getModelsByBrandId(id).then(function (array) {
                 vm.modelsArray = array;
             });
         }
 
         function getAllFuels() {
-            parametersFactory.getAllFuels().then(function (array) {
+            return parametersFactory.getAllFuels().then(function (array) {
                 vm.fuelsArray = array;
             });
         }
 
         function getAllTransmissions() {
-            parametersFactory.getAllTransmissions().then(function (array) {
+            return parametersFactory.getAllTransmissions().then(function (array) {
                 vm.transmissionsArray = array;
+                //createCars();
             });
         }
 
         /*function createCars() {
-            for (var i = 0; i < 100; i++) {
+            $interval(function () {
                 vm.car.brandId = getRandomInt(0, 10);
+                vm.car.brand = vm.brandsArray[vm.car.brandId].name;
                 vm.car.modelId = getRandomInt(0, 5);
+                vm.car.model = vm.brandsArray[vm.car.brandId].models[vm.car.modelId].name;
                 vm.car.price = getRandomInt(0, 200000);
                 vm.car.year = getRandomInt(1950, 2017);
-                vm.car.mileage = getRandomInt(0, 300000);
+                vm.car.mileage = getRandomInt(1, 300000);
                 vm.car.fuelId = getRandomInt(0, 5);
-                vm.car.capacity = getRandomInt(0, 6);
+                vm.car.fuel = vm.fuelsArray[vm.car.fuelId].name;
+                vm.car.capacity = getRandomInt(1, 6);
                 vm.car.transmissionId = getRandomInt(0, 1);
+                vm.car.transmission = vm.transmissionsArray[vm.car.transmissionId].name;
 
                 carsFactory.addCar(vm.car);
+            }, 4000);
 
-            }
         }
 
         function getRandomInt(min, max) {

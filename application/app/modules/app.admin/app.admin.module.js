@@ -5,7 +5,8 @@
   angular
     .module('app.admin',[
         'ui.materialize',
-        'ui.router'
+        'ui.router',
+        'kendo.directives'
     ]);
 
 })();

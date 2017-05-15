@@ -16,8 +16,7 @@
 
     <div class="row" ng-hide="vm.isLoading">
         <div class="col s4" ng-repeat="car in vm.carsArray | orderBy: '-views'">
-            <h5 class="light">{{vm.brandsArray[car.brandId].name + ' ' +
-                vm.brandsArray[car.brandId].models[car.modelId].name}}</h5>
+            <h5 class="light">{{car.brand + ' ' + car.model}}</h5>
             <div class="card small hoverable">
                 <div class="card-image">
                     <img src="content/img/48.jpg">

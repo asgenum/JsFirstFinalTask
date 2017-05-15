@@ -24,9 +24,7 @@
         function showCarInfo() {
             if (vm.carId) {
                 getCarById(vm.carId).then(function (car) {
-                    //console.log(car.$ref().key())
-                    if ('brandId' in vm.car) {
-
+                    if ('brand' in vm.car) {
                         getAllBrands().then(function (array) {
                             getAllFuels().then(function (array) {
                                 getAllTransmissions().then(function (array) {

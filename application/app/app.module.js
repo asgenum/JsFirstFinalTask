@@ -7,7 +7,8 @@
             'app.admin',
             'ui.materialize',
             'ui.router',
-            'firebase'
+            'firebase',
+            'kendo.directives'
         ]);
 
 })();
